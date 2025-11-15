@@ -20,6 +20,11 @@ async_session = async_sessionmaker(
 )
 
 
-async def init_tables():
+async def create_tables():
     async with async_engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
+
+async def delete_tables():
+    async with async_engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)

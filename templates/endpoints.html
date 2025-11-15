@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>API DOCS</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            h1 { color: #645d5d; }
+            details { margin-bottom: 15px; }
+            summary { cursor: pointer; font-weight: bold; font-size: 18px; }
+            code { background-color: #dedcdc; padding: 2px 5px; border-radius: 3px; }
+        </style>
+    </head>
+    <body>
+        <h1>API Documentation</h1>
+        <p>List of possible endpoints</p>
+
+        <details>
+            <summary>Get an abbreviated version of the transmitted URL</summary>
+            <ul>
+                <li><code>POST /</code> — The method accepts the URL string for shortening in the request body and returns a response with the code 201.</li>
+            </ul>
+            <b>JSON data:</b>
+            <pre><code>{
+"url": "https://my-long-url.com"
+}</code></pre>
+
+            <b>Response:</b>
+            <pre><code>{
+"short_id": "id of your link",
+"short_url": "https://shortened-url.com"
+}</code></pre>
+        </details>
+
+        <details>
+            <summary>Return the original URL</summary>
+            <ul>
+                <li><code>GET /{short_id}</code> — The method takes the identifier of the shortened URL as a parameter and returns a response with the code 307 and the original URL in the Location header.</li>
+            </ul>
+        </details>
+
+        <p>Full docs:</p>
+        <ul>
+            <li><a href="/docs">Swagger UI</a></li>
+            <li><a href="/redoc">ReDoc</a></li>
+        </ul>
+    </body>
+</html>
