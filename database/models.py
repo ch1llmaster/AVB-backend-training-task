@@ -12,6 +12,7 @@ class URLBase(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     default_url: Mapped[str] = mapped_column(nullable=False)
+    uniq_id: Mapped[str] = mapped_column(nullable=False, unique=True)
     shortened_url: Mapped[str] = mapped_column(nullable=False)
     updated_at: Mapped[datetime] = mapped_column(
         default=datetime.now,
